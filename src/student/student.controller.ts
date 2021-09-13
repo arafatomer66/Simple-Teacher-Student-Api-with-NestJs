@@ -1,11 +1,11 @@
 import { Controller , Get , Param , Put , Post, Body } from "@nestjs/common";
-import { json } from "stream/consumers";
+import { Student  } from "./dto/student.dto";
 
 @Controller('students')
 export class StudentController {
     @Get()
-    getStudents() {
-        return { 'message' : "Hi" } ;
+    getStudents(): Student[] {
+        return [{ 'name' : "Hi" , "teacher" : 'me' }] ;
     }
 
     @Get(':studentId')
@@ -14,7 +14,7 @@ export class StudentController {
     }
 
     @Post()
-    createStudent(@Body() body) {
+    createStudent(@Body() body: Student){
         console.log(body);
         return { "body" : JSON.stringify(body) } ;
     }
