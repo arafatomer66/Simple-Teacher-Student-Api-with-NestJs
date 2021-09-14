@@ -12,8 +12,8 @@ export class StudentService {
 
     getStudentById(id: number): Student  {
         console.log(id);
-        console.log(this.students.find( (student) => { return student.id == id }));
-        return this.students.find( (student) => { return student.id == id} )
+        console.log(this.students.find( (student) => { return student.id === id }));
+        return this.students.find( (student) => { return student.id === id} )
     }
 
     createStudent( student:Student ) {

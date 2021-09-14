@@ -1,4 +1,4 @@
-import { Controller , Get , Param , Put , Post, Body } from "@nestjs/common";
+import { Controller , Get , Param , Put , Post, Body, ParseIntPipe } from "@nestjs/common";
 import { Student  } from "./dto/student.dto";
 import { StudentService } from "./studet.service";
 
@@ -13,7 +13,7 @@ export class StudentController {
     }
 
     @Get(':studentId')
-    getStudentById(@Param('studentId') id: number) {
+    getStudentById(@Param('studentId' , new ParseIntPipe()) id: number) {
         return this.studentData.getStudentById(id);
     }
 
